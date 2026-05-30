@@ -1,224 +1,850 @@
-
-<h2 class="sr-only">Aldric's Wrath — Bear Shaman build guide for Path of Exile 2</h2>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aldric's Wrath — Bear Shaman Build Guide · POE2 0.5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  .aw-wrap { padding: 1rem 0; font-size: 15px; color: var(--color-text-primary); }
-  .aw-header { margin-bottom: 1.5rem; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 1rem; }
-  .aw-title { font-size: 22px; font-weight: 500; margin: 0 0 4px; }
-  .aw-sub { font-size: 13px; color: var(--color-text-secondary); margin: 0; }
-  .aw-badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: var(--border-radius-md); margin-right: 6px; margin-top: 6px; }
-  .aw-badge-fire { background: #FAECE7; color: #993C1D; }
-  .aw-badge-phys { background: #F1EFE8; color: #444441; }
-  .aw-badge-tank { background: #E6F1FB; color: #185FA5; }
-  .aw-badge-boss { background: #EAF3DE; color: #3B6D11; }
-  .section { margin-bottom: 1.5rem; }
-  .section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 10px; }
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
-  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 12px 14px; }
-  .card-label { font-size: 12px; color: var(--color-text-secondary); margin: 0 0 4px; }
-  .card-value { font-size: 15px; font-weight: 500; margin: 0; }
-  .card-note { font-size: 12px; color: var(--color-text-secondary); margin: 4px 0 0; }
-  .skill-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
-  .skill-row:last-child { border-bottom: none; }
-  .skill-icon { width: 32px; height: 32px; border-radius: var(--border-radius-md); background: var(--color-background-secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .skill-name { font-size: 14px; font-weight: 500; margin: 0 0 2px; }
-  .skill-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
-  .supports { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
-  .support-pill { font-size: 11px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 20px; padding: 2px 8px; }
-  .gear-row { display: grid; grid-template-columns: 90px 1fr; gap: 8px; padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; align-items: start; }
-  .gear-row:last-child { border-bottom: none; }
-  .gear-slot { color: var(--color-text-secondary); font-size: 12px; padding-top: 1px; }
-  .gear-stats { color: var(--color-text-primary); line-height: 1.6; }
-  .priority-bar { display: flex; gap: 6px; align-items: center; margin-bottom: 8px; }
-  .priority-label { font-size: 12px; color: var(--color-text-secondary); width: 120px; flex-shrink: 0; }
-  .priority-track { flex: 1; height: 6px; background: var(--color-background-secondary); border-radius: 4px; overflow: hidden; }
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --border: #e8e4dc;
+    --border-strong: #d4cfc5;
+    --text: #1a1814;
+    --text-secondary: #6b6560;
+    --text-tertiary: #9e9891;
+    --accent: #c4501a;
+    --accent-light: #fdf1ec;
+    --accent-mid: #e8845a;
+    --phys: #5a6e3a;
+    --phys-light: #f2f5ec;
+    --blue: #2a5fa5;
+    --blue-light: #eef3fb;
+    --sidebar-w: 220px;
+    --content-max: 780px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* Top bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .topbar-brand {
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .topbar-meta {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .version-badge {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid #f0c4ae;
+  }
+
+  /* Layout */
+  .layout {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    gap: 2.5rem;
+    align-items: flex-start;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: var(--sidebar-w);
+    flex-shrink: 0;
+    position: sticky;
+    top: 68px;
+    padding: 2rem 0;
+  }
+  .sidebar-section {
+    margin-bottom: 1.5rem;
+  }
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+    padding-left: 10px;
+  }
+  .sidebar-link {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  .sidebar-link:hover {
+    color: var(--text);
+    background: var(--border);
+  }
+  .sidebar-link.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .sidebar-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1rem 0;
+  }
+
+  /* Main content */
+  .main {
+    flex: 1;
+    min-width: 0;
+    padding: 2rem 0 4rem;
+  }
+
+  /* Hero */
+  .hero {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .hero-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .hero-title span { color: var(--accent); }
+  .hero-tagline {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-style: italic;
+    font-family: 'Crimson Pro', serif;
+  }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+  .tag-fire { background: var(--accent-light); color: var(--accent); border-color: #f0c4ae; }
+  .tag-phys { background: var(--phys-light); color: var(--phys); border-color: #d4ddc4; }
+  .tag-tank { background: var(--blue-light); color: var(--blue); border-color: #b8ccee; }
+  .tag-neutral { background: #f5f5f3; color: var(--text-secondary); border-color: var(--border); }
+
+  /* Section */
+  .section {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 72px;
+  }
+  .section-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-intro {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+
+  /* Callout */
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-light);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 1.25rem;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .callout strong { color: var(--accent); }
+  .callout-blue {
+    border-left-color: var(--blue);
+    background: var(--blue-light);
+  }
+  .callout-blue strong { color: var(--blue); }
+
+  /* Stat cards */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.25rem;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .stat-card-label { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .stat-card-value { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+  .stat-card-note { font-size: 12px; color: var(--text-secondary); }
+
+  /* Skill cards */
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: border-color 0.15s;
+  }
+  .skill-card:hover { border-color: var(--border-strong); }
+  .skill-card.core { border-left: 3px solid var(--accent); }
+  .skill-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .icon-fire { background: var(--accent-light); }
+  .icon-phys { background: var(--phys-light); }
+  .icon-neutral { background: #f5f5f3; }
+  .skill-body { flex: 1; min-width: 0; }
+  .skill-name-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+  .skill-name { font-size: 15px; font-weight: 500; }
+  .skill-role { font-size: 12px; color: var(--text-tertiary); }
+  .skill-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 8px; }
+  .supports { display: flex; flex-wrap: wrap; gap: 5px; }
+  .support-gem {
+    font-size: 11px;
+    background: #f5f5f3;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2px 9px;
+  }
+
+  /* Ascendancy */
+  .asc-list { counter-reset: asc; }
+  .asc-node {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .asc-node.key { border-color: var(--accent-mid); background: var(--accent-light); }
+  .asc-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+  .asc-node.key .asc-num { background: var(--accent); color: #fff; }
+  .asc-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+  .asc-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+  /* Gear table */
+  .gear-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .gear-table th {
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    background: #faf9f7;
+  }
+  .gear-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .gear-table tr:last-child td { border-bottom: none; }
+  .gear-table tr:hover td { background: #faf9f7; }
+  .gear-slot-name { font-weight: 500; color: var(--text); white-space: nowrap; }
+  .gear-stats-cell { color: var(--text-secondary); line-height: 1.7; }
+  .gear-stats-cell .must { color: var(--accent); font-weight: 500; }
+  .gear-table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* Priority bars */
+  .priority-list { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .priority-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .priority-row:last-child { margin-bottom: 0; }
+  .priority-name { font-size: 13px; color: var(--text); width: 180px; flex-shrink: 0; }
+  .priority-track { flex: 1; height: 7px; background: var(--border); border-radius: 4px; overflow: hidden; }
   .priority-fill { height: 100%; border-radius: 4px; }
-  .asc-node { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 10px 14px; margin-bottom: 8px; }
-  .asc-order { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 2px; }
-  .asc-name { font-size: 14px; font-weight: 500; margin: 0 0 2px; }
-  .asc-effect { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
-  .phase-header { font-size: 13px; font-weight: 500; margin: 0 0 6px; }
-  .phase-note { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; margin: 0; }
-  .tag-fire { color: #993C1D; }
-  .tag-phys { color: #5F5E5A; }
+  .priority-note { font-size: 11px; color: var(--text-tertiary); width: 80px; text-align: right; flex-shrink: 0; }
+
+  /* Phase timeline */
+  .phase-timeline { position: relative; padding-left: 28px; }
+  .phase-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+  .phase {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  .phase::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-strong);
+    border: 2px solid var(--bg);
+  }
+  .phase.current::before { background: var(--accent); }
+  .phase-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-tertiary); margin-bottom: 4px; }
+  .phase-title { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+  .phase-body { font-size: 13px; color: var(--text-secondary); line-height: 1.7; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+
+  /* Rotation */
+  .rotation-steps { list-style: none; counter-reset: step; }
+  .rotation-step {
+    counter-increment: step;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  .rotation-step::before {
+    content: counter(step);
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .rotation-step-content { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  .rotation-step-content strong { color: var(--text); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-tertiary);
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .sidebar { display: none; }
+    .hero-title { font-size: 32px; }
+    .layout { padding: 0 1rem; }
+  }
 </style>
+</head>
+<body>
 
-<div class="aw-wrap">
-  <div class="aw-header">
-    <p class="aw-title">Aldric's Wrath</p>
-    <p class="aw-sub">Ryan/Claude build · POE2 0.5 Runes of Aldur · Bear Shaman</p>
-    <div>
-      <span class="aw-badge aw-badge-fire">Fire</span>
-      <span class="aw-badge aw-badge-phys">Physical</span>
-      <span class="aw-badge aw-badge-tank">Face tank</span>
-      <span class="aw-badge aw-badge-boss">Boss killer</span>
-    </div>
+<nav class="topbar">
+  <a href="#" class="topbar-brand">Aldric's Wrath</a>
+  <div class="topbar-meta">
+    <span class="version-badge">0.5 Runes of Aldur</span>
+    <span>Bear Shaman · Ryan/Claude build</span>
   </div>
+</nav>
 
-  <div class="section">
-    <p class="section-title">Build identity</p>
-    <div class="card-grid">
-      <div class="card">
-        <p class="card-label">Core mechanic</p>
-        <p class="card-value">Rage → Glory → Meteors</p>
-        <p class="card-note">Stay in melee, never stop attacking</p>
-      </div>
-      <div class="card">
-        <p class="card-label">Primary form</p>
-        <p class="card-value">Bear (permanent)</p>
-        <p class="card-note">Shift in early, stay in forever</p>
-      </div>
-      <div class="card">
-        <p class="card-label">Defense layer</p>
-        <p class="card-value">Armour + Life</p>
-        <p class="card-note">+ Runic Ward second health pool</p>
-      </div>
-      <div class="card">
-        <p class="card-label">Signature skill</p>
-        <p class="card-value">Walking Calamity</p>
-        <p class="card-note">Unlocks at level 52 (gem tier 13)</p>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Build guide</div>
+      <a href="#overview" class="sidebar-link active">Overview</a>
+      <a href="#skills" class="sidebar-link">Skills</a>
+      <a href="#ascendancy" class="sidebar-link">Ascendancy</a>
+      <a href="#gear" class="sidebar-link">Gear</a>
+      <a href="#stats" class="sidebar-link">Stat priorities</a>
+      <a href="#leveling" class="sidebar-link">Leveling</a>
+      <a href="#rotation" class="sidebar-link">Boss rotation</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Quick ref</div>
+      <a href="#runic-ward" class="sidebar-link">Runic Ward</a>
+      <a href="#tips" class="sidebar-link">Tips</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="hero" id="overview">
+      <p class="hero-eyebrow">Path of Exile 2 · 0.5 Runes of Aldur · Druid</p>
+      <h1 class="hero-title">Aldric's <span>Wrath</span></h1>
+      <p class="hero-tagline">Become the meteor. Never leave Bear form. Face tank everything.</p>
+      <div class="tag-row">
+        <span class="tag tag-fire">Physical + Fire</span>
+        <span class="tag tag-tank">Face Tank</span>
+        <span class="tag tag-neutral">Boss Killer</span>
+        <span class="tag tag-neutral">Permanent Bear</span>
+        <span class="tag tag-neutral">League Start Friendly</span>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <p class="section-title">Skills</p>
-    <div class="skill-row">
-      <div class="skill-icon"><i class="ti ti-flame" style="font-size:18px; color:#993C1D;" aria-hidden="true"></i></div>
-      <div>
-        <p class="skill-name">Walking Calamity <span style="font-size:11px; color:var(--color-text-secondary);">(core — unlocks lvl 52)</span></p>
-        <p class="skill-desc">Your meteor storm. Activated at full Glory, meteors rain continuously while you fight. Massive boss damage — multiple meteors hit large targets simultaneously.</p>
-        <div class="supports">
-          <span class="support-pill">Weapon Elemental Damage</span>
-          <span class="support-pill">More Duration</span>
-          <span class="support-pill">Elemental Focus</span>
+    <!-- Build overview cards -->
+    <div class="section">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">Core mechanic</div>
+          <div class="stat-card-value">Rage → Glory → Meteors</div>
+          <div class="stat-card-note">Stay aggressive, never stop attacking</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Primary form</div>
+          <div class="stat-card-value">Bear (permanent)</div>
+          <div class="stat-card-note">Shift in early, stay forever</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Defense</div>
+          <div class="stat-card-value">Armour + Life</div>
+          <div class="stat-card-note">+ Runic Ward second health pool</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Signature skill</div>
+          <div class="stat-card-value">Walking Calamity</div>
+          <div class="stat-card-note">Unlocks at level 52 (gem tier 13)</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>How the loop works:</strong> Maul enemies to build Rage → overflow Rage into Glory → activate Walking Calamity → meteors rain down while you keep attacking → meteors refill Rage → loop repeats. The harder you fight, the more apocalyptic it gets.
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section" id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-intro">The build runs four skills. Walking Calamity is the identity — everything else exists to fuel it.</p>
+
+      <div class="skill-card core">
+        <div class="skill-icon-box icon-fire">🌋</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Walking Calamity</span>
+            <span class="skill-role">Core · Unlocks level 52 (gem tier 13)</span>
+          </div>
+          <p class="skill-desc">Your meteor storm. Costs Glory to activate. Once active, meteors continuously rain down around your Bear — the landing area is enormous. Exceptional against bosses where multiple meteors overlap on large hitboxes and melt them simultaneously. Keep this active at all times during boss fights.</p>
+          <div class="supports">
+            <span class="support-gem">Weapon Elemental Damage</span>
+            <span class="support-gem">More Duration</span>
+            <span class="support-gem">Elemental Focus</span>
+            <span class="support-gem">Concentrated Area (bosses)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon-box icon-phys">🐾</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Maul</span>
+            <span class="skill-role">Primary attack · Rage engine</span>
+          </div>
+          <p class="skill-desc">Default Bear attack and your primary Rage generator. Spam this constantly to build Rage, overflow into Glory, and sustain Walking Calamity. Also your best single-target skill against bosses during the Windows between Calamity activations.</p>
+          <div class="supports">
+            <span class="support-gem">Rage III</span>
+            <span class="support-gem">Rapid Attacks II</span>
+            <span class="support-gem">Mana Leech</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon-box icon-neutral">💨</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Rampage</span>
+            <span class="skill-role">Map clearing · Movement</span>
+          </div>
+          <p class="skill-desc">Channelled charge for flying through maps. Fixed in patch 0.5 — no longer clips into enemy hitboxes. Run Walking Calamity simultaneously while Ramping for combined AoE destruction through packs. Great movement speed bonus.</p>
+          <div class="supports">
+            <span class="support-gem">Momentum</span>
+            <span class="support-gem">Aftershock II</span>
+            <span class="support-gem">Hit and Run</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon-box icon-phys">💥</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Furious Slam</span>
+            <span class="skill-role">Big AoE · Early game / boss opener</span>
+          </div>
+          <p class="skill-desc">Massive ground slam with huge AoE. Your primary damage skill for the entire campaign before Walking Calamity unlocks at 52. Keep it as a boss opener even in endgame — drop a few slams before activating Walking Calamity to get the fight started.</p>
         </div>
       </div>
     </div>
-    <div class="skill-row">
-      <div class="skill-icon"><i class="ti ti-paw" style="font-size:18px; color:var(--color-text-secondary);" aria-hidden="true"></i></div>
-      <div>
-        <p class="skill-name">Maul <span style="font-size:11px; color:var(--color-text-secondary);">(primary attack + rage engine)</span></p>
-        <p class="skill-desc">Your main single-target skill and rage generator. Use constantly to build rage, overflow into Glory, then trigger meteors.</p>
-        <div class="supports">
-          <span class="support-pill">Rage III</span>
-          <span class="support-pill">Rapid Attacks II</span>
-          <span class="support-pill">Mana Leech</span>
+
+    <!-- Ascendancy -->
+    <div class="section" id="ascendancy">
+      <h2 class="section-title">Ascendancy — Shaman</h2>
+      <p class="section-intro">Take these in order. The 2nd point (Furious Wellspring) is the most important node in the entire build — rush your first Ascendancy trial to get it.</p>
+
+      <div class="asc-list">
+        <div class="asc-node">
+          <div class="asc-num">1</div>
+          <div>
+            <div class="asc-name">Druidic Champion</div>
+            <div class="asc-desc">Required gateway node. No direct benefit for this build — take it only to unlock Furious Wellspring.</div>
+          </div>
+        </div>
+        <div class="asc-node key">
+          <div class="asc-num">2</div>
+          <div>
+            <div class="asc-name">Furious Wellspring ★</div>
+            <div class="asc-desc">Disables Rage degeneration entirely and adds passive Rage regeneration scaled by your Mana Regeneration stat. This means you start every boss encounter at full Rage and Glory — Walking Calamity is ready before the fight even begins. This is what makes the build work. Prioritise Mana Regen on jewelry as a result.</div>
+          </div>
+        </div>
+        <div class="asc-node">
+          <div class="asc-num">3</div>
+          <div>
+            <div class="asc-name">Reactive Growth</div>
+            <div class="asc-desc">Grants Adaptations that reduce elemental damage taken based on what element is hitting you. Strong defensive layer that rewards face-tanking — the more consistently you get hit by one element, the more durable you become against it.</div>
+          </div>
+        </div>
+        <div class="asc-node">
+          <div class="asc-num">4</div>
+          <div>
+            <div class="asc-name">Avatar of Evolution</div>
+            <div class="asc-desc">Converts 5% of physical damage taken as each of Fire, Cold, and Lightning (15% total). Getting hit by physical attacks now builds your Adaptation stacks for all elements simultaneously. Perfectly rewards the aggressive, face-tank playstyle.</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="skill-row">
-      <div class="skill-icon"><i class="ti ti-run" style="font-size:18px; color:var(--color-text-secondary);" aria-hidden="true"></i></div>
-      <div>
-        <p class="skill-name">Rampage <span style="font-size:11px; color:var(--color-text-secondary);">(map clear)</span></p>
-        <p class="skill-desc">Channelled charge for map clearing. Fixed in 0.5 — no longer clips into enemies. Keep Walking Calamity active while Ramping for combined AoE destruction.</p>
-        <div class="supports">
-          <span class="support-pill">Momentum</span>
-          <span class="support-pill">Aftershock II</span>
-          <span class="support-pill">Hit and Run</span>
+
+    <!-- Gear -->
+    <div class="section" id="gear">
+      <h2 class="section-title">Gear</h2>
+      <p class="section-intro">Your Talisman is always your most important item — upgrade it constantly throughout the campaign. Everything else supports survivability.</p>
+
+      <div class="callout callout-blue">
+        <strong>New in 0.5:</strong> Stop at every Ezomyte Remnant in each zone. Collect Verisium and craft Runic Ward onto your helmet, body armour, gloves, and boots — it's a free second health pool unique to this patch.
+      </div>
+
+      <div class="gear-table-wrap">
+        <table class="gear-table">
+          <thead>
+            <tr>
+              <th>Slot</th>
+              <th>What to look for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="gear-slot-name">Talisman<br><small style="font-weight:400;color:#9e9891;">(weapon)</small></span></td>
+              <td class="gear-stats-cell">
+                <span class="must">Physical damage</span> · <span class="must">+skill levels to attacks</span><br>
+                Upgrade constantly — this scales everything. Never hold onto an old Talisman.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gear-slot-name">Body Armour</span></td>
+              <td class="gear-stats-cell">
+                <span class="must">High base armour</span> · <span class="must">"% Armour applies to Elemental Damage"</span><br>
+                That affix is the single best defensive mod you can get on a chest.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gear-slot-name">Helmet</span></td>
+              <td class="gear-stats-cell">High armour · Runic Ward (Verisium craft) · Life</td>
+            </tr>
+            <tr>
+              <td><span class="gear-slot-name">Gloves</span></td>
+              <td class="gear-stats-cell">
+                <span class="must">+levels to melee skills</span> — mandatory for damage output<br>
+                Runic Ward · Armour · Resistances
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gear-slot-name">Boots</span></td>
+              <td class="gear-stats-cell">
+                <span class="must">35% movement speed</span> · Runic Ward<br>
+                Resistances · Armour · Life
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gear-slot-name">Rings</span></td>
+              <td class="gear-stats-cell">
+                <span class="must">One ring must have Mana Leech</span> — mandatory from Act 3<br>
+                Resistances · Flat physical damage · Life
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gear-slot-name">Amulet</span></td>
+              <td class="gear-stats-cell">Life · <span class="must">Mana Regeneration</span> · +skill levels</td>
+            </tr>
+            <tr>
+              <td><span class="gear-slot-name">Belt</span></td>
+              <td class="gear-stats-cell">Life · Resistances · Armour</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Stat priorities -->
+    <div class="section" id="stats">
+      <h2 class="section-title">Stat priorities</h2>
+      <p class="section-intro">Roughly in order. Cap resistances early so you can focus on damage scaling later.</p>
+
+      <div class="priority-list">
+        <div class="priority-row">
+          <span class="priority-name">Life</span>
+          <div class="priority-track"><div class="priority-fill" style="width:100%; background:#c4501a;"></div></div>
+          <span class="priority-note">Always #1</span>
+        </div>
+        <div class="priority-row">
+          <span class="priority-name">Resistances (cap 75%)</span>
+          <div class="priority-track"><div class="priority-fill" style="width:95%; background:#c4501a;"></div></div>
+          <span class="priority-note">Cap ASAP</span>
+        </div>
+        <div class="priority-row">
+          <span class="priority-name">Armour</span>
+          <div class="priority-track"><div class="priority-fill" style="width:85%; background:#888780;"></div></div>
+          <span class="priority-note">Stack it</span>
+        </div>
+        <div class="priority-row">
+          <span class="priority-name">Mana Regeneration</span>
+          <div class="priority-track"><div class="priority-fill" style="width:78%; background:#2a5fa5;"></div></div>
+          <span class="priority-note">Fuels Wellspring</span>
+        </div>
+        <div class="priority-row">
+          <span class="priority-name">+Skill levels</span>
+          <div class="priority-track"><div class="priority-fill" style="width:72%; background:#5a6e3a;"></div></div>
+          <span class="priority-note">Scales damage</span>
+        </div>
+        <div class="priority-row">
+          <span class="priority-name">Movement speed</span>
+          <div class="priority-track"><div class="priority-fill" style="width:58%; background:#5a6e3a;"></div></div>
+          <span class="priority-note">35% target</span>
+        </div>
+        <div class="priority-row">
+          <span class="priority-name">Energy Shield</span>
+          <div class="priority-track"><div class="priority-fill" style="width:12%; background:#ccc;"></div></div>
+          <span class="priority-note">Avoid</span>
+        </div>
+      </div>
+
+      <p style="font-size:12px; color:var(--text-tertiary); margin-top:8px;">Energy Shield took heavy nerfs in 0.5. Bear Shaman doesn't naturally scale it — don't chase it.</p>
+    </div>
+
+    <!-- Leveling -->
+    <div class="section" id="leveling">
+      <h2 class="section-title">Leveling phases</h2>
+
+      <div class="phase-timeline">
+        <div class="phase current">
+          <div class="phase-label">Campaign · Levels 1–51</div>
+          <div class="phase-title">Bear brawler</div>
+          <div class="phase-body">
+            Shift into Bear form immediately and stay there. Use <strong>Maul</strong> to generate Rage, <strong>Furious Slam</strong> for big packs, and <strong>Rampage</strong> to move through zones quickly. Cast <strong>Volcano</strong> in human form before every major fight — it keeps erupting while you brawl as a Bear. Rush your first Ascendancy trial and take <strong>Furious Wellspring</strong> immediately.
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-label">Post level 52</div>
+          <div class="phase-title">Walking Calamity unlocked — build clicks into place</div>
+          <div class="phase-body">
+            The full identity arrives. Maul to build Rage → overflow to Glory → activate Walking Calamity → meteors fall while you keep attacking. Never leave Bear form. Make sure you're stopping at every Ezomyte Remnant to stack Runic Ward on your gear as you find Verisium.
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-label">Endgame</div>
+          <div class="phase-title">Optimisation — Talisman, gem levels, rare upgrades</div>
+          <div class="phase-body">
+            Focus on gem levels after completing the campaign. Upgrade Talisman to best-in-slot physical DPS. Look for the "Gain extra damage as Physical" modifier — it's a massive multiplier. Target Defiance of Destiny amulet as your first premium upgrade for survivability.
+          </div>
         </div>
       </div>
     </div>
-    <div class="skill-row">
-      <div class="skill-icon"><i class="ti ti-mountain" style="font-size:18px; color:var(--color-text-secondary);" aria-hidden="true"></i></div>
-      <div>
-        <p class="skill-name">Furious Slam <span style="font-size:11px; color:var(--color-text-secondary);">(early game / boss opener)</span></p>
-        <p class="skill-desc">Big AoE slam. Primary damage skill before Walking Calamity unlocks. Keep as a boss opener even late game.</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="section">
-    <p class="section-title">Ascendancy order (Shaman)</p>
-    <div class="asc-node">
-      <p class="asc-order">1st point</p>
-      <p class="asc-name">Druidic Champion</p>
-      <p class="asc-effect">Required gateway node. No effect on its own — take it to unlock Furious Wellspring.</p>
-    </div>
-    <div class="asc-node" style="border-color: var(--color-border-secondary);">
-      <p class="asc-order">2nd point — most important</p>
-      <p class="asc-name">Furious Wellspring</p>
-      <p class="asc-effect">Disables Rage degeneration entirely. Adds passive Rage regeneration scaled by Mana Regen on gear. You start every boss at full Rage and Glory. This is what makes the build work.</p>
-    </div>
-    <div class="asc-node">
-      <p class="asc-order">3rd point</p>
-      <p class="asc-name">Reactive Growth</p>
-      <p class="asc-effect">Grants Adaptations — reduces elemental damage taken based on what's hitting you. Strong defensive layer, pairs well with face tanking.</p>
-    </div>
-    <div class="asc-node">
-      <p class="asc-order">4th point</p>
-      <p class="asc-name">Avatar of Evolution</p>
-      <p class="asc-effect">Converts 5% of physical damage taken as Fire/Cold/Lightning (15% total). Makes getting hit build your elemental defences — rewards the aggressive playstyle.</p>
-    </div>
-  </div>
+    <!-- Boss rotation -->
+    <div class="section" id="rotation">
+      <h2 class="section-title">Boss rotation</h2>
+      <p class="section-intro">Simple and consistent. The build rewards aggression — staying in melee range is both the offensive and defensive strategy.</p>
 
-  <div class="section">
-    <p class="section-title">Gear priorities — what to look for</p>
-    <div class="card" style="padding: 8px 14px;">
-      <div class="gear-row">
-        <span class="gear-slot">Talisman (weapon)</span>
-        <span class="gear-stats">Physical damage · +skill levels to attacks · upgrade constantly through campaign</span>
+      <ol class="rotation-steps">
+        <li class="rotation-step">
+          <div class="rotation-step-content"><strong>Pre-cast Volcano</strong> in human form before entering the boss arena. It keeps erupting automatically while you're in Bear form.</div>
+        </li>
+        <li class="rotation-step">
+          <div class="rotation-step-content"><strong>Shift to Bear</strong> and activate <strong>Walking Calamity</strong> immediately — thanks to Furious Wellspring, you start the fight at full Glory.</div>
+        </li>
+        <li class="rotation-step">
+          <div class="rotation-step-content"><strong>Spam Maul</strong> at point-blank range. Stay on top of the boss. Multiple meteors will overlap on the hitbox for massive damage.</div>
+        </li>
+        <li class="rotation-step">
+          <div class="rotation-step-content"><strong>Reactivate Walking Calamity</strong> as soon as it expires. Keep Rage and Glory building continuously — never back off.</div>
+        </li>
+        <li class="rotation-step">
+          <div class="rotation-step-content"><strong>Use Furious Slam</strong> during any downtime windows between Calamity activations for additional burst.</div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Runic Ward -->
+    <div class="section" id="runic-ward">
+      <h2 class="section-title">Runic Ward (0.5 mechanic)</h2>
+
+      <div class="callout">
+        <strong>Don't skip this.</strong> It's free and it's one of the best defensive layers in 0.5 for a face-tank build.
       </div>
-      <div class="gear-row">
-        <span class="gear-slot">Body armour</span>
-        <span class="gear-stats">High base armour · "% Armour applies to Elemental Damage" mod is huge</span>
+
+      <p style="font-size:14px; color:var(--text-secondary); line-height:1.7;">Every zone in 0.5 contains Ezomyte Remnants. Interacting with them drops Verisium currency. Use Verisium to craft <strong>Runic Ward</strong> onto your helmet, body armour, gloves, and boots. Runic Ward acts as a second health pool that sits on top of your regular life pool — enemies have to chew through it before touching your actual health. Combined with high Armour and Reactive Growth Adaptations, this makes the build extremely durable in the campaign and early maps.</p>
+    </div>
+
+    <!-- Tips -->
+    <div class="section" id="tips">
+      <h2 class="section-title">Tips and common mistakes</h2>
+
+      <div class="skill-card" style="margin-bottom:8px;">
+        <div class="skill-icon-box icon-neutral" style="font-size:16px;">✓</div>
+        <div class="skill-body">
+          <div class="skill-name" style="margin-bottom:4px; font-size:14px;">Upgrade your Talisman constantly</div>
+          <div class="skill-desc">The Talisman is your damage. An under-levelled Talisman is the #1 reason the build feels slow. Check vendors every act and replace it the moment you see better physical DPS.</div>
+        </div>
       </div>
-      <div class="gear-row">
-        <span class="gear-slot">Helmet</span>
-        <span class="gear-stats">High armour · Runic Ward (Verisium craft)</span>
+
+      <div class="skill-card" style="margin-bottom:8px;">
+        <div class="skill-icon-box icon-neutral" style="font-size:16px;">✓</div>
+        <div class="skill-body">
+          <div class="skill-name" style="margin-bottom:4px; font-size:14px;">Mana Regen on jewellery is a damage stat</div>
+          <div class="skill-desc">Furious Wellspring scales with Mana Regeneration — the more you have, the faster passive Rage Regen ticks. This directly affects how quickly you reach max Glory and start dropping meteors.</div>
+        </div>
       </div>
-      <div class="gear-row">
-        <span class="gear-slot">Gloves</span>
-        <span class="gear-stats">+levels to melee skills (mandatory for damage) · Runic Ward</span>
+
+      <div class="skill-card" style="margin-bottom:8px;">
+        <div class="skill-icon-box icon-fire" style="font-size:16px;">✗</div>
+        <div class="skill-body">
+          <div class="skill-name" style="margin-bottom:4px; font-size:14px;">Don't stack Energy Shield</div>
+          <div class="skill-desc">ES recharge delay was nerfed hard in 0.5. Bear Shaman has no ES scaling. Any ES on gear is wasted item budget — prioritise Life and Armour instead.</div>
+        </div>
       </div>
-      <div class="gear-row">
-        <span class="gear-slot">Boots</span>
-        <span class="gear-slots">35% movement speed · Runic Ward · resistances</span>
-      </div>
-      <div class="gear-row">
-        <span class="gear-slot">Rings</span>
-        <span class="gear-stats">One ring must have Mana Leech · resistances · flat physical damage</span>
-      </div>
-      <div class="gear-row">
-        <span class="gear-slot">Amulet</span>
-        <span class="gear-stats">Life · Mana Regeneration · +skill levels</span>
-      </div>
-      <div class="gear-row">
-        <span class="gear-slot">Belt</span>
-        <span class="gear-stats">Life · resistances · armour</span>
+
+      <div class="skill-card">
+        <div class="skill-icon-box icon-neutral" style="font-size:16px;">✓</div>
+        <div class="skill-body">
+          <div class="skill-name" style="margin-bottom:4px; font-size:14px;">Walking Calamity hits harder on large bosses</div>
+          <div class="skill-desc">The meteors land somewhat randomly within a large area. On big boss hitboxes multiple meteors overlap simultaneously — this is where the real damage comes from. Stay close and let them stack.</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <p class="section-title">Stat priorities on gear</p>
-    <div class="priority-bar"><span class="priority-label">Life</span><div class="priority-track"><div class="priority-fill" style="width:100%; background:#D85A30;"></div></div></div>
-    <div class="priority-bar"><span class="priority-label">Resistances (75% cap)</span><div class="priority-track"><div class="priority-fill" style="width:95%; background:#D85A30;"></div></div></div>
-    <div class="priority-bar"><span class="priority-label">Armour</span><div class="priority-track"><div class="priority-fill" style="width:88%; background:#888780;"></div></div></div>
-    <div class="priority-bar"><span class="priority-label">Mana Regen</span><div class="priority-track"><div class="priority-fill" style="width:80%; background:#378ADD;"></div></div></div>
-    <div class="priority-bar"><span class="priority-label">+Skill levels</span><div class="priority-track"><div class="priority-fill" style="width:75%; background:#639922;"></div></div></div>
-    <div class="priority-bar"><span class="priority-label">Move speed</span><div class="priority-track"><div class="priority-fill" style="width:60%; background:#639922;"></div></div></div>
-    <div class="priority-bar"><span class="priority-label">Energy Shield</span><div class="priority-track"><div class="priority-fill" style="width:15%; background:#888780;"></div></div></div>
-  </div>
+    <footer>
+      <p>Aldric's Wrath · Ryan/Claude build · POE2 0.5 Runes of Aldur · Updated May 29, 2026</p>
+      <p style="margin-top:4px;">A custom build — not a copy. Built from first principles with community research.</p>
+    </footer>
 
-  <div class="section">
-    <p class="section-title">Leveling phases</p>
-    <div class="card" style="margin-bottom:8px; padding: 10px 14px;">
-      <p class="phase-header">Campaign (lvl 1–51) — before Walking Calamity</p>
-      <p class="phase-note">Shift into Bear form immediately. Use Maul to generate Rage, Furious Slam for big packs, Rampage to move through zones. Cast Volcano in human form before shifting — it keeps erupting while you brawl. Rush Furious Wellspring at your first Ascendancy trial.</p>
-    </div>
-    <div class="card" style="padding: 10px 14px;">
-      <p class="phase-header">Post-lvl 52 — Walking Calamity unlocked</p>
-      <p class="phase-note">The build clicks into place. Maul to build Rage → overflow to Glory → activate Walking Calamity → meteors fall while you keep attacking. Never leave Bear form. Stop for every Ezomyte Remnant to stack Runic Ward on your gear.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <p class="section-title">Don't forget</p>
-    <div class="card" style="padding: 10px 14px; border-left: 2px solid #D85A30; border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;">
-      <p style="font-size:13px; line-height:1.6; margin:0; color:var(--color-text-secondary);">Stop at every Ezomyte Remnant in each zone — loot Verisium and craft Runic Ward onto helmet, body armour, gloves, and boots. It's a free second health pool unique to 0.5 and perfectly fits the face-tank identity of this build.</p>
-    </div>
-  </div>
-
-  <p style="font-size:11px; color:var(--color-text-secondary); margin: 1rem 0 0; text-align:right;">Version 0.1 · POE2 0.5 Runes of Aldur · Last updated May 29, 2026</p>
+  </main>
 </div>
+
+<script>
+  const links = document.querySelectorAll('.sidebar-link');
+  const sections = document.querySelectorAll('.section, .hero');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        links.forEach(l => {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-60px 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(s => { if (s.id) observer.observe(s); });
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
