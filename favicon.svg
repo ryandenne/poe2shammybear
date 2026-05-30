@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="50" fill="#1a1814"/>
+  
+  <!-- Meteor streak -->
+  <line x1="72" y1="18" x2="40" y2="42" stroke="#e8845a" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <line x1="76" y1="20" x2="50" y2="38" stroke="#fdf1ec" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Meteor fireball -->
+  <circle cx="72" cy="18" r="6" fill="#c4501a"/>
+  <circle cx="72" cy="18" r="3.5" fill="#f5a070"/>
+
+  <!-- Bear silhouette -->
+  <!-- Left ear -->
+  <circle cx="33" cy="38" r="7" fill="#c4501a"/>
+  <circle cx="33" cy="38" r="4.5" fill="#1a1814"/>
+  <!-- Right ear -->
+  <circle cx="57" cy="36" r="7" fill="#c4501a"/>
+  <circle cx="57" cy="36" r="4.5" fill="#1a1814"/>
+  <!-- Head -->
+  <ellipse cx="45" cy="47" rx="18" ry="16" fill="#c4501a"/>
+  <!-- Snout -->
+  <ellipse cx="45" cy="54" rx="9" ry="7" fill="#a03d12"/>
+  <!-- Nose -->
+  <ellipse cx="45" cy="50" rx="4" ry="3" fill="#1a1814"/>
+  <!-- Eyes -->
+  <circle cx="38" cy="45" r="2.5" fill="#1a1814"/>
+  <circle cx="52" cy="45" r="2.5" fill="#1a1814"/>
+  <circle cx="39" cy="44" r="1" fill="#fdf1ec"/>
+  <circle cx="53" cy="44" r="1" fill="#fdf1ec"/>
+  <!-- Body -->
+  <ellipse cx="45" cy="72" rx="16" ry="14" fill="#c4501a"/>
+  <!-- Paws -->
+  <ellipse cx="30" cy="80" rx="8" ry="6" fill="#a03d12"/>
+  <ellipse cx="60" cy="80" rx="8" ry="6" fill="#a03d12"/>
+</svg>
