@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aldric's Wrath — Bear Shaman Build Guide · POE2 0.5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -438,10 +437,12 @@
       <a href="#stats" class="sidebar-link">Stat priorities</a>
       <a href="#leveling" class="sidebar-link">Leveling</a>
       <a href="#rotation" class="sidebar-link">Boss rotation</a>
+      <a href="#passive-tree" class="sidebar-link">Passive tree</a>
     </div>
     <hr class="sidebar-divider">
     <div class="sidebar-section">
       <div class="sidebar-label">Quick ref</div>
+      <a href="#passive-tree" class="sidebar-link">Passive tree</a>
       <a href="#runic-ward" class="sidebar-link">Runic Ward</a>
       <a href="#tips" class="sidebar-link">Tips</a>
     </div>
@@ -484,7 +485,7 @@
         <div class="stat-card">
           <div class="stat-card-label">Signature skill</div>
           <div class="stat-card-value">Walking Calamity</div>
-          <div class="stat-card-note">Unlocks at level 52 (gem tier 13)</div>
+          <div class="stat-card-note">Unlocks level 52 · Everything builds to this</div>
         </div>
       </div>
 
@@ -496,33 +497,19 @@
     <!-- Skills -->
     <div class="section" id="skills">
       <h2 class="section-title">Skills</h2>
-      <p class="section-intro">The build runs four skills. Walking Calamity is the identity — everything else exists to fuel it.</p>
+      <p class="section-intro">Skills are grouped by when you get them. Walking Calamity is the identity — everything before level 52 exists to get you there.</p>
 
-      <div class="skill-card core">
-        <div class="skill-icon-box icon-fire">🌋</div>
-        <div class="skill-body">
-          <div class="skill-name-row">
-            <span class="skill-name">Walking Calamity</span>
-            <span class="skill-role">Core · Unlocks level 52 (gem tier 13)</span>
-          </div>
-          <p class="skill-desc">Your meteor storm. Costs Glory to activate. Once active, meteors continuously rain down around your Bear — the landing area is enormous. Exceptional against bosses where multiple meteors overlap on large hitboxes and melt them simultaneously. Keep this active at all times during boss fights.</p>
-          <div class="supports">
-            <span class="support-gem">Weapon Elemental Damage</span>
-            <span class="support-gem">More Duration</span>
-            <span class="support-gem">Elemental Focus</span>
-            <span class="support-gem">Concentrated Area (bosses)</span>
-          </div>
-        </div>
-      </div>
+      <!-- Phase: Acts 1-2 -->
+      <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin:0 0 10px;">Acts 1–2 · Available from the start</p>
 
       <div class="skill-card">
         <div class="skill-icon-box icon-phys">🐾</div>
         <div class="skill-body">
           <div class="skill-name-row">
             <span class="skill-name">Maul</span>
-            <span class="skill-role">Primary attack · Rage engine</span>
+            <span class="skill-role">Primary attack · Rage engine · Available from start</span>
           </div>
-          <p class="skill-desc">Default Bear attack and your primary Rage generator. Spam this constantly to build Rage, overflow into Glory, and sustain Walking Calamity. Also your best single-target skill against bosses during the Windows between Calamity activations.</p>
+          <p class="skill-desc">Default Bear attack and your primary Rage generator. Spam this constantly to build Rage, overflow into Glory, and sustain Walking Calamity. Also your best single-target skill against bosses between Calamity activations.</p>
           <div class="supports">
             <span class="support-gem">Rage III</span>
             <span class="support-gem">Rapid Attacks II</span>
@@ -532,13 +519,61 @@
       </div>
 
       <div class="skill-card">
+        <div class="skill-icon-box icon-phys">💥</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Furious Slam</span>
+            <span class="skill-role">Big AoE · First gem reward Act 1</span>
+          </div>
+          <p class="skill-desc">Massive ground slam with huge AoE. Your primary damage skill for the entire campaign before Walking Calamity unlocks. Keep it as a boss opener even in endgame — drop a few slams before activating Walking Calamity to start the fight.</p>
+          <div class="supports">
+            <span class="support-gem">Aftershock II</span>
+            <span class="support-gem">Brutality</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon-box icon-fire">🌋</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Volcano</span>
+            <span class="skill-role">Free fire damage · Act 1</span>
+          </div>
+          <p class="skill-desc">Cast this in human form before every major fight or zone. It keeps erupting automatically while you brawl as a Bear — free damage that requires zero attention once placed. Stack two if you can.</p>
+          <div class="supports">
+            <span class="support-gem">More Duration</span>
+            <span class="support-gem">Elemental Focus</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon-box icon-neutral">🗿</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Shockwave Totem</span>
+            <span class="skill-role">Early AoE filler · Acts 1–2</span>
+          </div>
+          <p class="skill-desc">Your early-game AoE gap filler before Rampage is available. Drop it into packs and let it do work while you Maul and Slam. Pairs naturally with Volcano for a solid two-totem setup in the first two acts. Replace with Rampage once that unlocks around level 11.</p>
+          <div class="supports">
+            <span class="support-gem">Concentrated Effect</span>
+            <span class="support-gem">Added Fire Damage</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase: Acts 3-6 -->
+      <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin:16px 0 10px;">Acts 3–6 · Unlocks around level 11+</p>
+
+      <div class="skill-card">
         <div class="skill-icon-box icon-neutral">💨</div>
         <div class="skill-body">
           <div class="skill-name-row">
             <span class="skill-name">Rampage</span>
-            <span class="skill-role">Map clearing · Movement</span>
+            <span class="skill-role">Map clearing · Movement · Replaces Shockwave Totem ~lvl 11</span>
           </div>
-          <p class="skill-desc">Channelled charge for flying through maps. Fixed in patch 0.5 — no longer clips into enemy hitboxes. Run Walking Calamity simultaneously while Ramping for combined AoE destruction through packs. Great movement speed bonus.</p>
+          <p class="skill-desc">Channelled charge that carries you through the rest of the campaign and into endgame. Fixed in patch 0.5 — no longer clips into enemy hitboxes. Run Walking Calamity simultaneously while Ramping for combined AoE destruction. Quality this gem first — it extends Rage consumption duration so Rampage lasts longer.</p>
           <div class="supports">
             <span class="support-gem">Momentum</span>
             <span class="support-gem">Aftershock II</span>
@@ -548,15 +583,68 @@
       </div>
 
       <div class="skill-card">
-        <div class="skill-icon-box icon-phys">💥</div>
+        <div class="skill-icon-box icon-phys">🦁</div>
         <div class="skill-body">
           <div class="skill-name-row">
-            <span class="skill-name">Furious Slam</span>
-            <span class="skill-role">Big AoE · Early game / boss opener</span>
+            <span class="skill-name">Ferocious Roar</span>
+            <span class="skill-role">Rage pre-loader · Boss opener</span>
           </div>
-          <p class="skill-desc">Massive ground slam with huge AoE. Your primary damage skill for the entire campaign before Walking Calamity unlocks at 52. Keep it as a boss opener even in endgame — drop a few slams before activating Walking Calamity to get the fight started.</p>
+          <p class="skill-desc">Activate this before engaging a boss to rapidly build Rage and Glory before the fight starts. Causes Armour Break on enemies which is a direct damage multiplier on bosses. Use it on cooldown during boss encounters — it's not just a pre-fight skill.</p>
+          <div class="supports">
+            <span class="support-gem">Inspiration</span>
+          </div>
         </div>
       </div>
+
+      <div class="skill-card">
+        <div class="skill-icon-box icon-fire">⛰️</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Fury of the Mountain</span>
+            <span class="skill-role">Rage on hit · Sustained generation</span>
+          </div>
+          <p class="skill-desc">Creates fiery fissures that pulse with flame continuously. Each pulse generates Rage, directly feeding your Rampage and eventually Walking Calamity loop. Once you have this plus Ferocious Roar, Rage generation becomes effectively permanent.</p>
+          <div class="supports">
+            <span class="support-gem">Rage on Hit</span>
+            <span class="support-gem">More Duration</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase: Always on -->
+      <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin:16px 0 10px;">Passive auras · Always on</p>
+
+      <div class="skill-card">
+        <div class="skill-icon-box icon-fire">🔥</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Herald of Ash</span>
+            <span class="skill-role">Passive aura · Reserve Spirit · Set and forget</span>
+          </div>
+          <p class="skill-desc">Reserves Spirit to add fire damage to your attacks permanently. Free damage with no interaction required — activate it and never touch it again. Pairs well with Overwhelming Presence in your second Spirit slot for a resistance debuff aura on nearby enemies.</p>
+        </div>
+      </div>
+
+      <!-- Phase: Level 52 -->
+      <p style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary);margin:16px 0 10px;">Level 52 · The build comes online</p>
+
+      <div class="skill-card core">
+        <div class="skill-icon-box icon-fire">🌋</div>
+        <div class="skill-body">
+          <div class="skill-name-row">
+            <span class="skill-name">Walking Calamity</span>
+            <span class="skill-role">Core identity · Unlocks level 52 · Gem tier 13</span>
+          </div>
+          <p class="skill-desc">Your meteor storm. Costs Glory to activate. Once active, meteors continuously rain down around your Bear — the landing area is enormous. Exceptional against bosses where multiple meteors overlap on large hitboxes and melt them simultaneously. Keep this active at all times during boss fights. Everything in this build was designed around this moment.</p>
+          <div class="supports">
+            <span class="support-gem">Weapon Elemental Damage</span>
+            <span class="support-gem">More Duration</span>
+            <span class="support-gem">Elemental Focus</span>
+            <span class="support-gem">Concentrated Area (bosses)</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Ascendancy -->
@@ -764,22 +852,214 @@
         </li>
       </ol>
     </div>
-    
-<div class="section" id="passive-tree">
-  <h2 class="section-title">Passive tree</h2>
-  <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
-    <iframe 
-      src="https://poeplanner.com/poe2/BAAAAQQABQALAAAIAB1W8HfBNB0ckcN-4WCipMMAAAAAAAAAAAQAAP______________________AAADAAAAAwD_____________PAAAAAAUAB-LCAAAAAAAAAMDAAAAAAAAAAAA"
-      width="100%" 
-      height="600px" 
-      style="border:none; display:block;">
-    </iframe>
-    <div style="background:var(--surface); border-top:1px solid var(--border); padding:10px 16px;">
-      <p style="font-size:12px; color:var(--text-secondary); margin:0;">Interactive passive tree — click nodes to explore. <a href="https://poeplanner.com/poe2/BAAAAQQABQALAAAIAB1W8HfBNB0ckcN-4WCipMMAAAAAAAAAAAQAAP______________________AAADAAAAAwD_____________PAAAAAAUAB-LCAAAAAAAAAMDAAAAAAAAAAAA" target="_blank" style="color:var(--accent);">Open full screen ↗</a></p>
+
+    <!-- Passive Tree -->
+    <div class="section" id="passive-tree">
+      <h2 class="section-title">Passive tree</h2>
+      <p class="section-intro">A routing map — not the full tree, just the nodes that matter. Gold = already taken. Tap any node for details.</p>
+
+      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+        <div style="background:#0d0d14; padding:20px 16px; position:relative; overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
+          <svg width="100%" viewBox="0 0 640 960" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>Aldric's Wrath passive tree routing</title>
+            <desc>In-game style passive tree map for Bear Shaman build showing taken, next, and future nodes</desc>
+            <defs>
+              <style>
+                .phase-label { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; fill: #4a4860; }
+                .phase-line  { stroke: #2a2840; stroke-width: 0.5; stroke-dasharray: 3 4; }
+                .conn-taken  { stroke: #c8922a; stroke-width: 2; fill: none; filter: url(#glow-gold); }
+                .conn-next   { stroke: #6a5f3a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+                .conn-future { stroke: #2e2c3e; stroke-width: 1.5; fill: none; }
+                .nt { fill: #c8922a; stroke: #e8b84a; stroke-width: 1.5; }
+                .nn { fill: #2a2030; stroke: #6a5a2a; stroke-width: 1.5; }
+                .nf { fill: #161420; stroke: #2e2c3e; stroke-width: 1; }
+                .NT { fill: #1a1408; stroke: #e8b84a; stroke-width: 2; }
+                .NN { fill: #1a1610; stroke: #8a7040; stroke-width: 1.5; }
+                .NF { fill: #0f0e18; stroke: #2e2c3e; stroke-width: 1.5; }
+                .NK { fill: #1a0e08; stroke: #e87030; stroke-width: 2; }
+                .rt { fill: none; stroke: #e8b84a22; stroke-width: 6; }
+                .rn { fill: none; stroke: #8a704022; stroke-width: 4; }
+                .rk { fill: none; stroke: #e8703022; stroke-width: 8; }
+                .lt { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; fill: #e8c870; }
+                .ln { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: #8a7840; }
+                .lf { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: #3a3850; }
+                .lk { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; fill: #e89050; }
+                .ls { font-family: 'DM Sans', sans-serif; font-size: 9.5px; fill: #5a5060; }
+                .lst{ font-family: 'DM Sans', sans-serif; font-size: 9.5px; fill: #9a8050; }
+                .pnode { cursor: pointer; }
+                .legend-t { font-family: 'DM Sans', sans-serif; font-size: 10px; fill: #5a5870; }
+              </style>
+              <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="glow-key" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Phase labels -->
+            <text class="phase-label" x="20" y="38">Early game · Acts 1–2</text>
+            <line class="phase-line" x1="20" y1="300" x2="620" y2="300"/>
+            <text class="phase-label" x="20" y="316">Mid game · Acts 3–4</text>
+            <line class="phase-line" x1="20" y1="540" x2="620" y2="540"/>
+            <text class="phase-label" x="20" y="556">Endgame</text>
+
+            <!-- Connectors -->
+            <line class="conn-taken" x1="320" y1="80" x2="320" y2="120"/>
+            <line class="conn-taken" x1="278" y1="160" x2="190" y2="195"/>
+            <line class="conn-taken" x1="362" y1="160" x2="450" y2="195"/>
+            <line class="conn-taken" x1="180" y1="220" x2="180" y2="248"/>
+            <line class="conn-taken" x1="440" y1="225" x2="375" y2="258"/>
+            <line class="conn-taken" x1="200" y1="262" x2="285" y2="270"/>
+            <line class="conn-next"  x1="320" y1="295" x2="320" y2="330"/>
+            <line class="conn-next"  x1="290" y1="362" x2="185" y2="395"/>
+            <line class="conn-next"  x1="350" y1="362" x2="455" y2="395"/>
+            <line class="conn-future" x1="200" y1="428" x2="285" y2="460"/>
+            <line class="conn-future" x1="440" y1="428" x2="355" y2="460"/>
+            <line class="conn-future" x1="320" y1="494" x2="320" y2="560"/>
+            <line class="conn-future" x1="290" y1="598" x2="185" y2="635"/>
+            <line class="conn-future" x1="350" y1="598" x2="455" y2="635"/>
+            <line class="conn-future" x1="200" y1="668" x2="285" y2="700"/>
+            <line class="conn-future" x1="440" y1="668" x2="355" y2="700"/>
+            <line class="conn-future" x1="320" y1="736" x2="320" y2="772"/>
+
+            <!-- START -->
+            <g class="pnode" onclick="alert('Druid starting node — your origin on the passive tree.')">
+              <circle class="rt" cx="320" cy="60" r="22"/>
+              <circle class="NT" cx="320" cy="60" r="16" style="filter:url(#glow-gold)"/>
+              <text class="lt" x="320" y="57" text-anchor="middle" dominant-baseline="central">Start</text>
+              <text class="lst" x="320" y="68" text-anchor="middle">Druid origin</text>
+            </g>
+
+            <!-- Spell + Attack Damage — TAKEN -->
+            <g class="pnode" onclick="alert('Spell + Attack Damage — scales both Furious Slam and Volcano simultaneously. First major damage node.')">
+              <circle class="rt" cx="320" cy="140" r="24"/>
+              <circle class="NT" cx="320" cy="140" r="18" style="filter:url(#glow-gold)"/>
+              <text class="lt" x="320" y="136" text-anchor="middle" dominant-baseline="central">Spell + attack dmg</text>
+              <text class="lst" x="320" y="149" text-anchor="middle">Furious Slam + Volcano</text>
+              <text style="fill:#c8922a;font-size:10px;font-family:DM Sans,sans-serif;" x="346" y="122" text-anchor="middle">✓</text>
+            </g>
+
+            <!-- Life Regen x4 — TAKEN -->
+            <circle class="nt" cx="148" cy="208" r="7" style="filter:url(#glow-gold)"/>
+            <circle class="nt" cx="163" cy="226" r="7" style="filter:url(#glow-gold)"/>
+            <circle class="nt" cx="175" cy="248" r="7" style="filter:url(#glow-gold)"/>
+            <g class="pnode" onclick="alert('Life Regen ×4 — four small nodes taken for core sustain. This is your face-tank foundation that keeps you alive while Rage builds.')">
+              <circle class="rt" cx="180" cy="210" r="22"/>
+              <circle class="NT" cx="180" cy="210" r="16" style="filter:url(#glow-gold)"/>
+              <text class="lt" x="180" y="206" text-anchor="middle" dominant-baseline="central">Life regen ×4</text>
+              <text class="lst" x="180" y="218" text-anchor="middle">Sustain base</text>
+            </g>
+
+            <!-- Guardian of the Wilds — TAKEN -->
+            <g class="pnode" onclick="alert('Guardian of the Wilds — grants Strength and Intelligence, scaling both melee damage and spell effects. One of the most efficient early damage notables.')">
+              <circle class="rt" cx="460" cy="210" r="24"/>
+              <circle class="NT" cx="460" cy="210" r="18" style="filter:url(#glow-gold)"/>
+              <text class="lt" x="460" y="206" text-anchor="middle" dominant-baseline="central">Guardian of Wilds</text>
+              <text class="lst" x="460" y="218" text-anchor="middle">STR + INT, hybrid dmg</text>
+            </g>
+
+            <!-- Resilient Soul — TAKEN -->
+            <g class="pnode" onclick="alert('Resilient Soul — enhances Life regeneration and adds Life recoup from damage taken. A powerful sustain layer during prolonged fights, crucial for face-tanking bosses.')">
+              <circle class="rt" cx="320" cy="275" r="26"/>
+              <circle class="NT" cx="320" cy="275" r="20" style="filter:url(#glow-gold)"/>
+              <text class="lt" x="320" y="271" text-anchor="middle" dominant-baseline="central">Resilient Soul</text>
+              <text class="lst" x="320" y="283" text-anchor="middle">Life regen + recoup on hit</text>
+              <text style="fill:#c8922a;font-size:10px;font-family:DM Sans,sans-serif;" x="348" y="257" text-anchor="middle">✓</text>
+            </g>
+
+            <!-- Singular Purpose — NEXT -->
+            <text style="fill:#e8b84a;font-size:14px;" x="350" y="328" text-anchor="middle">→</text>
+            <g class="pnode" onclick="alert('Singular Purpose — vital for two-handed Talisman scaling. This is your next priority node. Take it as soon as you cross into mid-game.')">
+              <circle class="rn" cx="320" cy="348" r="26"/>
+              <circle class="NN" cx="320" cy="348" r="20"/>
+              <text class="ln" x="320" y="344" text-anchor="middle" dominant-baseline="central">Singular Purpose</text>
+              <text class="ls" x="320" y="356" text-anchor="middle">Talisman scaling · Take next</text>
+            </g>
+
+            <!-- Crushing Verdict — FUTURE -->
+            <g class="pnode" onclick="alert('Crushing Verdict — major physical damage output node. Take this after Singular Purpose on your left branch path.')">
+              <circle class="rn" cx="170" cy="412" r="20"/>
+              <circle class="NF" cx="170" cy="412" r="15"/>
+              <text class="lf" x="170" y="408" text-anchor="middle" dominant-baseline="central">Crushing Verdict</text>
+              <text class="ls" x="170" y="420" text-anchor="middle">Physical output</text>
+            </g>
+
+            <!-- Hide of the Bear — FUTURE -->
+            <g class="pnode" onclick="alert('Hide of the Bear — increases Armour while in Bear form specifically. Great synergy with our face-tank identity.')">
+              <circle class="rn" cx="470" cy="412" r="20"/>
+              <circle class="NF" cx="470" cy="412" r="15"/>
+              <text class="lf" x="470" y="408" text-anchor="middle" dominant-baseline="central">Hide of the Bear</text>
+              <text class="ls" x="470" y="420" text-anchor="middle">Armour in Bear form</text>
+            </g>
+
+            <!-- Mystical Rage — FUTURE -->
+            <g class="pnode" onclick="alert('Mystical Rage — core Rage generation node. Boosts Bear-specific effects and Rage mechanics. Both branches merge here.')">
+              <circle class="rn" cx="320" cy="475" r="22"/>
+              <circle class="NF" cx="320" cy="475" r="17"/>
+              <text class="lf" x="320" y="471" text-anchor="middle" dominant-baseline="central">Mystical Rage</text>
+              <text class="ls" x="320" y="483" text-anchor="middle">Rage gen + Bear effects</text>
+            </g>
+
+            <!-- Molten Being — KEY FUTURE -->
+            <g class="pnode" onclick="alert('Molten Being — key fire damage node. This is what makes Walking Calamity meteors hit like a truck. Rush this in early endgame.')">
+              <circle class="rk" cx="320" cy="578" r="30"/>
+              <circle class="NK" cx="320" cy="578" r="22" style="filter:url(#glow-key)"/>
+              <text class="lk" x="320" y="574" text-anchor="middle" dominant-baseline="central">Molten Being</text>
+              <text class="ls" x="320" y="586" text-anchor="middle">Fire dmg — fuels meteors</text>
+            </g>
+
+            <!-- Molten Claw — FUTURE -->
+            <g class="pnode" onclick="alert('Molten Claw — converts Bear melee attacks to deal fire damage on top of physical. Feeds directly into the meteor storm identity.')">
+              <circle class="NF" cx="170" cy="652" r="15"/>
+              <text class="lf" x="170" y="648" text-anchor="middle" dominant-baseline="central">Molten Claw</text>
+              <text class="ls" x="170" y="661" text-anchor="middle">Bear fire conversion</text>
+            </g>
+
+            <!-- Thickened Arteries — FUTURE -->
+            <g class="pnode" onclick="alert('Thickened Arteries — maximum life scaling node. More life = more face tanking = more meteors. Take this alongside Molten Claw.')">
+              <circle class="NF" cx="470" cy="652" r="15"/>
+              <text class="lf" x="470" y="648" text-anchor="middle" dominant-baseline="central">Thickened Arteries</text>
+              <text class="ls" x="470" y="661" text-anchor="middle">Max life scaling</text>
+            </g>
+
+            <!-- Bestial Rage — FUTURE -->
+            <g class="pnode" onclick="alert('Bestial Rage — converts your Rage stacks into a direct damage multiplier. At high Rage, this becomes one of the best damage nodes in the build.')">
+              <circle class="rn" cx="320" cy="718" r="22"/>
+              <circle class="NF" cx="320" cy="718" r="17"/>
+              <text class="lf" x="320" y="714" text-anchor="middle" dominant-baseline="central">Bestial Rage</text>
+              <text class="ls" x="320" y="726" text-anchor="middle">Rage → damage multiplier</text>
+            </g>
+
+            <!-- Walking Calamity — KEY UNLOCK -->
+            <g class="pnode" onclick="alert('Walking Calamity — your signature skill unlocks at gem tier 13 (level 52). The entire build is designed around this moment. Once you have it, the Rage → Glory → Meteor loop is complete.')">
+              <circle class="rk" cx="320" cy="800" r="32"/>
+              <circle class="NK" cx="320" cy="800" r="24" style="filter:url(#glow-key)"/>
+              <text class="lk" x="320" y="793" text-anchor="middle" dominant-baseline="central">Walking Calamity</text>
+              <text class="ls" x="320" y="806" text-anchor="middle">Unlocks level 52 · Gem tier 13</text>
+              <text style="fill:#e87030;font-size:9px;font-family:DM Sans,sans-serif;" x="320" y="819" text-anchor="middle">The build comes online here</text>
+            </g>
+
+            <!-- Legend -->
+            <circle cx="30"  cy="880" r="6" class="nt" style="filter:url(#glow-gold)"/>
+            <text class="legend-t" x="42"  y="884">Taken</text>
+            <circle cx="104" cy="880" r="6" class="nn"/>
+            <text class="legend-t" x="116" y="884">Take next</text>
+            <circle cx="200" cy="880" r="6" class="nf"/>
+            <text class="legend-t" x="212" y="884">Future</text>
+            <circle cx="270" cy="880" r="6" style="fill:#1a0e08;stroke:#e87030;stroke-width:1.5;"/>
+            <text class="legend-t" x="282" y="884">Key node</text>
+          </svg>
+        </div>
+        <div style="background:#0f0e14; border-top:1px solid #1e1c2e; padding:10px 16px;">
+          <p style="font-size:12px; color:#5a5870; margin:0;">Tap any node for details. Gold = already taken · Dashed line = take next · Dark = future routing</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-    
+
     <!-- Runic Ward -->
     <div class="section" id="runic-ward">
       <h2 class="section-title">Runic Ward (0.5 mechanic)</h2>
